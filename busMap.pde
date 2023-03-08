@@ -169,9 +169,9 @@ void setup() {
   controls.load();
   
   //make the window resizable!
-  registerPre(this);
-  if (frame != null) {
-    frame.setResizable(true);
+  registerMethod("pre", this);
+  if (surface != null) {
+    surface.setResizable(true);
   }
 }
 
@@ -179,7 +179,7 @@ void setup() {
 void pre() {
   if (runOnce && (width != currentWidth || height != currentHeight)) {
     if ((width < 600) || (height < 400)) {
-      frame.setSize(max(width, 600), max(height, 400));
+      surface.setSize(max(width, 600), max(height, 400));
     }
     busStops.updateScreen();
     stopPairs.updateScreen();
